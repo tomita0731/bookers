@@ -1,15 +1,24 @@
 <h1>Editing Book</h1>
 
 <%= form_with model:@book do |f| %>
+
  <div class="field">
-   <label for="book_title" >Title
-   </label>
+   <label for="book_title">Title</label>
+   <input class=<%= f.text_field :title %> 
+ </div>
+
+ <div class= "field">
+   <label for="nook_body">Body</label>
+   <textarea class=<%= f.text_area :body %> 
+   </textarea> 
  </div>
  
- <div class="field">
-   <label for="book_body" >Body
-   </label>
- </div>
+ <%= f.submit 'Update Book' %>
  
- <% end %>
- 
+<% end %>
+
+<a class=<%= link_to "Show", book_path(@book) %></a>
+<%= "|" %>
+<a class=<%= link_to "Back",books_path(@book) %></a>
+
+
