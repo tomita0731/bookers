@@ -13,17 +13,17 @@
 
 <%= form_with model:@book do |f| %>
   <div class="field">
-   <div class="<%= 'field_with_errors' if @book.errors.any? %>">
+   <div class="<%= 'field_with_errors' if @book.errors[:title].any? %>">
      <label for="book_title">Title</label>
    </div>
-   <div class="<%= 'field_with_errors' if @book.errors.any? %>"><%= f.text_field :title %>
+   <div class="<%= 'field_with_errors' if @book.errors[:title].any? %>"><%= f.text_field :title %>
    </div>
   </div>
   <div class="field">
-    <div class="<%= 'field_with_errors' if @book.errors.any? %>">
+    <div class="<%= 'field_with_errors' if @book.errors[:body].any? %>">
       <label for="book_body">Body</label>
     </div>
-    <div class="<%= 'field_with_errors' if @book.errors.any? %>"><%= f.text_area :body %>
+    <div class="<%= 'field_with_errors' if @book.errors[:body].any? %>"><%= f.text_area :body %>
     </div>
   </div>
  <div class="action">  <%= f.submit 'Update Book' %></div>
@@ -32,5 +32,5 @@
 
 <a class=<%= link_to "Show", book_path(@book) %></a>
 <%= "|" %>
-<a class=<%= link_to "Back",books_path(@book) %></a>
+<a class=<%= link_to "Back",books_path %></a>
 
